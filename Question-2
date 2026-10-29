@@ -1,0 +1,35 @@
+# Original 8-bit binary number
+binary = "11010101"
+
+# a) Rotate Right Without Carry (ROR)
+print("a) Rotate Right Without Carry (ROR)")
+print("Original:", binary)
+
+result = binary
+
+for i in range(2):
+    last_bit = result[-1]
+    result = last_bit + result[:-1]
+    print("Step", i + 1, ":", result)
+
+print("Final Result:", result)
+
+
+# b) Rotate Right With Carry (RCR)
+print("\nb) Rotate Right With Carry (RCR)")
+
+result = binary
+carry = 0
+
+print("Original:", result)
+print("Initial Carry:", carry)
+
+for i in range(2):
+    new_carry = result[-1]
+    result = str(carry) + result[:-1]
+    carry = int(new_carry)
+
+    print("Step", i + 1, ":", result, "Carry:", carry)
+
+print("Final Result:", result)
+print("Final Carry:", carry)
