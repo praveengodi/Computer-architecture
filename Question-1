@@ -1,0 +1,46 @@
+def to_binary(n):
+    return format(n & 0xFF, '08b')
+
+def to_decimal(binary):
+    n = int(binary, 2)
+    if n >= 128:
+        n -= 256
+    return n
+
+# a) +48 + (+23)
+a = 48
+b = 23
+
+print("a) +48 + (+23)")
+print("Operand 1:", to_binary(a))
+print("Operand 2:", to_binary(b))
+
+result = a + b
+binary_result = to_binary(result)
+
+print("Binary Result:", binary_result)
+print("Decimal Result:", to_decimal(binary_result))
+
+if result > 127 or result < -128:
+    print("Overflow: Yes")
+else:
+    print("Overflow: No")
+
+# b) (-46) - (-29)
+a = -46
+b = -29
+
+print("\nb) (-46) - (-29)")
+print("Operand 1:", to_binary(a))
+print("Operand 2:", to_binary(b))
+
+result = a - b
+binary_result = to_binary(result)
+
+print("Binary Result:", binary_result)
+print("Decimal Result:", to_decimal(binary_result))
+
+if result > 127 or result < -128:
+    print("Overflow: Yes")
+else:
+    print("Overflow: No")
